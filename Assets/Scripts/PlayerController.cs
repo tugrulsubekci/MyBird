@@ -5,11 +5,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
-    [SerializeField] float force;
+    protected float force = 5; // ENCAPSULATION
 
     private GameManager gameManager;
 
-    void Start()
+    public virtual void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();

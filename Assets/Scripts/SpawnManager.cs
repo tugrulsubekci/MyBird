@@ -12,14 +12,14 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        SpawnPlayer();
+        SpawnPlayer(DataManager.Instance.playerIndex);
         StartCoroutine(SpawnObstacleRoutine());
     }
 
     void SpawnObstacle() // ABSTRACTION
     {
         float randomX = Random.Range(-yRange, yRange);
-        Vector3 obstacleSpawnPos = new Vector3(10, randomX, 0);
+        Vector3 obstacleSpawnPos = new Vector3(5, randomX, 0);
         Instantiate(gameObjects[0], obstacleSpawnPos, gameObjects[0].transform.rotation);
     }
 
@@ -31,9 +31,8 @@ public class SpawnManager : MonoBehaviour
             SpawnObstacle();
         }
     }
-    void SpawnPlayer()
+    void SpawnPlayer(int playerIndex)
     {
-        int playerIndex = 1;
         Vector3 playerPos = new Vector3(0, 10, 0);
         Instantiate(gameObjects[playerIndex], playerPos, gameObjects[playerIndex].transform.rotation);
     }
