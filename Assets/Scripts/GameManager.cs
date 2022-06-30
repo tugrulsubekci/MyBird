@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public bool gameOver;
     private int newScore;
+    public TextMeshProUGUI Score;
+    [SerializeField] GameObject gameOverMenu;
     void Start()
     {
         gameOver = false;
@@ -13,12 +17,30 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        gameOver = true;
-        Debug.Log("Game Over");
+        if (!gameOver)
+        {
+            gameOver = true;
+            gameOverMenu.SetActive(true);
+            if (newScore > DataManager.Instance.highScore)
+            {
+                DataManager.Instance.highScore = newScore;
+                DataManager.Instance.SaveHighScore();
+                DataManager.Instance.RefreshScoreTitle();
+            }
+        }
     }
     public void AddScore()
     {
         newScore++;
-        Debug.Log("Score: " + newScore);
+        Score.text = newScore.ToString();
+    }
+
+    public void RestartButton()
+    {
+        SceneManager.LoadScene(1);
+    }
+    public void BackToMenuButton()
+    {
+        SceneManager.LoadScene(0);
     }
 }
