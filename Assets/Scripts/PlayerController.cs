@@ -8,11 +8,16 @@ public class PlayerController : MonoBehaviour
     protected float force = 5; // ENCAPSULATION
 
     private GameManager gameManager;
+    private Animator playerAnim;
 
+    int timeBetweenSpace = 0;
     public virtual void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        playerAnim = GetComponent<Animator>();
+        Flap(true);
+        StartCoroutine(spaceTimer());
     }
 
     void Update()
@@ -20,11 +25,35 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && !gameManager.gameOver)
         {
             Fly();
+            Flap(true);
+            timeBetweenSpace = 0;
         }
     }
-
+    private void FixedUpdate()
+    {
+        if (gameManager.gameOver)
+        {
+            Flap(false);
+        }
+        if (timeBetweenSpace >= 1)
+        {
+            Flap(false);
+        }
+    }
     void Fly()
     {
-        playerRb.AddForce(Vector3.up * force ,ForceMode.Impulse);
+        playerRb.AddForce(Vector3.up * force, ForceMode.Impulse);
+    }
+    void Flap(bool isFlapping)
+    {
+        playerAnim.SetBool("Flapping", isFlapping);
+    }
+    IEnumerator spaceTimer()
+    {
+        while (!gameManager.gameOver)
+        {
+            yield return new WaitForSeconds(1);
+            timeBetweenSpace++;
+        }
     }
 }
