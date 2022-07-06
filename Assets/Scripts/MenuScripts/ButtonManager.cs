@@ -9,7 +9,8 @@ using UnityEditor;
 public class ButtonManager : MonoBehaviour
 {
     public TextMeshProUGUI inputName;
-    public GameObject warning;
+    public GameObject nickNameWarning;
+    public GameObject playerTwoWarning;
     public void StartButton1()
     {
         StartWithPlayer(1);
@@ -17,7 +18,15 @@ public class ButtonManager : MonoBehaviour
 
     public void StartButton2()
     {
-        StartWithPlayer(2);
+        if(DataManager.Instance.highScore >=20)
+        {
+            StartWithPlayer(2);
+        }
+        else
+        {
+            playerTwoWarning.SetActive(true);
+        }
+        
     }
 
     public void QuitButton()
@@ -39,7 +48,7 @@ Application.Quit();
         }
         else
         {
-            warning.SetActive(true);
+            nickNameWarning.SetActive(true);
         }
     }
 }
