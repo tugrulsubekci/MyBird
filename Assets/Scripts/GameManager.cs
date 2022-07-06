@@ -10,11 +10,20 @@ public class GameManager : MonoBehaviour
     private int newScore;
     public TextMeshProUGUI Score;
     [SerializeField] GameObject gameOverMenu;
+    [SerializeField] GameObject TapToFlapText;
+    public bool isTouch = false;
     void Start()
     {
         gameOver = false;
     }
-
+    private void LateUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && Score.text == "0")
+        {
+            TapToFlapText.SetActive(false);
+            isTouch = true;
+        }
+    }
     public void GameOver()
     {
         if (!gameOver)

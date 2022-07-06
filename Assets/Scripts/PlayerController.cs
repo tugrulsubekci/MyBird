@@ -16,8 +16,9 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerAnim = GetComponent<Animator>();
-        Flap(true);
+        Flap(false);
         StartCoroutine(spaceTimer());
+        playerRb.useGravity = false;
     }
 
     void Update()
@@ -27,6 +28,10 @@ public class PlayerController : MonoBehaviour
             Fly();
             Flap(true);
             timeBetweenSpace = 0;
+            if(!playerRb.useGravity)
+            {
+                playerRb.useGravity=true;
+            }
         }
     }
     private void FixedUpdate()

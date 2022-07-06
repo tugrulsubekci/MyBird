@@ -18,9 +18,16 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnObstacle() // ABSTRACTION
     {
-        float randomX = Random.Range(-yRange, yRange);
-        Vector3 obstacleSpawnPos = new Vector3(5, randomX, 0);
-        Instantiate(gameObjects[0], obstacleSpawnPos, gameObjects[0].transform.rotation);
+        if(gameManager.isTouch)
+        {
+            float randomX = Random.Range(-yRange, yRange);
+            Vector3 obstacleSpawnPos = new Vector3(5, randomX, 0);
+            Instantiate(gameObjects[0], obstacleSpawnPos, gameObjects[0].transform.rotation);
+        }
+        else
+        {
+            return;
+        }
     }
 
     IEnumerator SpawnObstacleRoutine()
