@@ -21,6 +21,7 @@ public class DataManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        // File.Delete(Application.persistentDataPath + "/bestscorefile.json"); // This line can be activated, If you want to delete save file.
         LoadHighScore();
         RefreshScoreTitle();
     }

@@ -40,7 +40,7 @@ Application.Quit();
 
     void StartWithPlayer(int playerIndex) // ABSTRACTION
     {
-        if (true)// (inputName.text.Length > 1)
+        if (inputName.text.Length > 1) // In unity remote, you have to turn it to the true
         {
             DataManager.Instance.playerIndex = playerIndex;
             SceneManager.LoadScene(1);

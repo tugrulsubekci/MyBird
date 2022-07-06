@@ -65,6 +65,7 @@ public class PlayerController : MonoBehaviour
     void Fly()
     {
         playerRb.AddForce(Vector3.up * force, ForceMode.Impulse);
+        FindObjectOfType<AudioManager>().Play("Flap");
     }
     void Flap(bool isFlapping)
     {

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gameOver)
         {
+            FindObjectOfType<AudioManager>().Play("GameOver");
             gameOver = true;
             gameOverMenu.SetActive(true);
             if (newScore > DataManager.Instance.highScore)
@@ -42,6 +43,7 @@ public class GameManager : MonoBehaviour
     {
         newScore++;
         Score.text = newScore.ToString();
+        FindObjectOfType<AudioManager>().Play("Score");
     }
 
     public void RestartButton()
