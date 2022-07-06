@@ -2159,7 +2159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputName: {fileID: 1421429659}
-  warning: {fileID: 414288507}
+  nickNameWarning: {fileID: 414288507}
   playerTwoWarning: {fileID: 905103220}
 --- !u!1 &1864822733
 GameObject:

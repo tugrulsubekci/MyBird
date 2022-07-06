@@ -40,7 +40,7 @@ Application.Quit();
 
     void StartWithPlayer(int playerIndex) // ABSTRACTION
     {
-        if (inputName.text.Length > 1)
+        if (true)// (inputName.text.Length > 1)
         {
             DataManager.Instance.playerIndex = playerIndex;
             SceneManager.LoadScene(1);

@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && Score.text == "0")
+        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Score.text == "0" ) //Touch and keyboard
         {
             TapToFlapText.SetActive(false);
             isTouch = true;

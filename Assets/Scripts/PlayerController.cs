@@ -17,12 +17,13 @@ public class PlayerController : MonoBehaviour
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         playerAnim = GetComponent<Animator>();
         Flap(false);
-        StartCoroutine(spaceTimer());
+        StartCoroutine(SpaceTimer());
         playerRb.useGravity = false;
     }
 
     void Update()
     {
+        // Keyboard
         if (Input.GetKeyDown(KeyCode.Space) && !gameManager.gameOver)
         {
             Fly();
@@ -31,6 +32,22 @@ public class PlayerController : MonoBehaviour
             if(!playerRb.useGravity)
             {
                 playerRb.useGravity=true;
+            }
+        }
+
+        // Touch
+        if (Input.touchCount > 0 && !gameManager.gameOver)
+        {
+            Touch firstTouch = Input.touches[0];
+            if(firstTouch.phase == TouchPhase.Began)
+            {
+                Fly();
+                Flap(true);
+                timeBetweenSpace = 0;
+                if (!playerRb.useGravity)
+                {
+                    playerRb.useGravity = true;
+                }
             }
         }
     }
@@ -53,7 +70,7 @@ public class PlayerController : MonoBehaviour
     {
         playerAnim.SetBool("Flapping", isFlapping);
     }
-    IEnumerator spaceTimer()
+    IEnumerator SpaceTimer()
     {
         while (!gameManager.gameOver)
         {
