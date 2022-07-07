@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 using TMPro;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -15,26 +14,32 @@ public class ButtonManager : MonoBehaviour
     public TextMeshProUGUI musicButtonText;
     private TextMeshProUGUI highScoreText;
     private void Awake()
-    {
-        if(DataManager.Instance.isMusicOn)
-        {
-            musicButtonText.text = "Music: On";
-        }
-        else
-        {
-            musicButtonText.text = "Music: Off";
-        }
+    { 
         highScoreText = GameObject.Find("HighScoreText").GetComponent<TextMeshProUGUI>();
-        highScoreText.text = $"High Score | {DataManager.Instance.playerName} | {DataManager.Instance.highScore}";
+        RefreshMusicButtonText(DataManager.Instance.isMusicOn);
+        RefreshHighScoreTitle();
+    }
+    private void Update()
+    {
+        if(!DataManager.Instance.isMusicOn)
+        {
+            FindObjectOfType<AudioManager>().Stop("Background");
+        }
     }
     public void StartButton1()
     {
+        FindObjectOfType<AudioManager>().Play("Click");
+        StartCoroutine(StartWith());
+    }
+    IEnumerator StartWith()
+    {
+        yield return new WaitForSeconds(0.2f);
         StartWithPlayer(1);
     }
 
     public void StartButton2()
     {
-        if(DataManager.Instance.highScore >=20)
+        if(DataManager.Instance.highScore >= 10)
         {
             StartWithPlayer(2);
         }
@@ -58,12 +63,13 @@ Application.Quit();
         if(DataManager.Instance.isMusicOn)
         {
             DataManager.Instance.isMusicOn = false;
-            musicButtonText.text = "Music: Off";
+            RefreshMusicButtonText(DataManager.Instance.isMusicOn);
         }
         else
         {
+            FindObjectOfType<AudioManager>().Play("Background");
             DataManager.Instance.isMusicOn = true;
-            musicButtonText.text = "Music: On";
+            RefreshMusicButtonText(DataManager.Instance.isMusicOn);
         }
     }
 
@@ -79,5 +85,21 @@ Application.Quit();
         {
             nickNameWarning.SetActive(true);
         }
+    }
+    void RefreshMusicButtonText(bool isMusicOn)
+    {
+        if(isMusicOn)
+        {
+            musicButtonText.text = "Music: On";
+        }
+        else
+        {
+            musicButtonText.text = "Music: Off";
+        }
+        
+    }
+    void RefreshHighScoreTitle()
+    {
+        highScoreText.text = $"High Score | {DataManager.Instance.playerName} | {DataManager.Instance.highScore}";
     }
 }

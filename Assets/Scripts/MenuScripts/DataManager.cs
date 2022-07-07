@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using TMPro;
@@ -25,7 +23,6 @@ public class DataManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         // File.Delete(Application.persistentDataPath + "/bestscorefile.json"); // This line can be activated, If you want to delete save file.
         LoadHighScore();
-        RefreshScoreTitle();
         isMusicOn = true;
     }
     [System.Serializable]
@@ -52,9 +49,5 @@ public class DataManager : MonoBehaviour
             playerName = data.playerName;
             highScore = data.highScore;
         }
-    }
-    public void RefreshScoreTitle() // ABSTRACTION
-    {
-        highScoreTitle.text = $"High Score | {playerName} | {highScore}";
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
@@ -22,7 +20,7 @@ public class MoveLeft : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (isPlayerPassed() && !isMethodUsed)
+        if (IsPlayerPassed() && !isMethodUsed)
         {
             gameManager.AddScore();
             isMethodUsed = true;
@@ -33,7 +31,7 @@ public class MoveLeft : MonoBehaviour
     {
         transform.Translate(Vector3.left * speed / 10);
     }
-    bool isPlayerPassed() // ABSTRACTION
+    bool IsPlayerPassed() // ABSTRACTION
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (transform.position.x < player.transform.position.x)

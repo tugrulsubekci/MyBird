@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -35,7 +32,6 @@ public class GameManager : MonoBehaviour
             {
                 DataManager.Instance.highScore = newScore;
                 DataManager.Instance.SaveHighScore();
-                DataManager.Instance.RefreshScoreTitle();
             }
         }
     }
@@ -44,15 +40,5 @@ public class GameManager : MonoBehaviour
         newScore++;
         scoreTitle.text = newScore.ToString();
         FindObjectOfType<AudioManager>().Play("Score");
-    }
-
-    public void RestartButton()
-    {
-        SceneManager.LoadScene(1);
-    }
-
-    public void BackToMenuButton()
-    {
-        SceneManager.LoadScene(0);
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,8 +9,8 @@ public class PlayerController : MonoBehaviour
     private GameManager gameManager;
     private Animator playerAnim;
 
-    int timeBetweenSpace = 0;
-    public virtual void Start()
+    private int timeBetweenSpace = 0;
+    void Start()
     {
         playerRb = GetComponent<Rigidbody>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
