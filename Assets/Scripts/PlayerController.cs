@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
-    protected float force = 5; // ENCAPSULATION
+    private float force = 5; // ENCAPSULATION
 
     private GameManager gameManager;
     private Animator playerAnim;

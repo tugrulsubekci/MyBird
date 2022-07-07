@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public bool gameOver;
     private int newScore;
-    public TextMeshProUGUI Score;
+    public TextMeshProUGUI scoreTitle;
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject TapToFlapText;
     public bool isTouch = false;
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && Score.text == "0" ) //Touch and keyboard
+        if (Input.GetKeyDown(KeyCode.Space) || Input.touchCount > 0 && scoreTitle.text == "0" ) //Touch and keyboard
         {
             TapToFlapText.SetActive(false);
             isTouch = true;
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void AddScore()
     {
         newScore++;
-        Score.text = newScore.ToString();
+        scoreTitle.text = newScore.ToString();
         FindObjectOfType<AudioManager>().Play("Score");
     }
 

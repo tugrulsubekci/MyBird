@@ -8,6 +8,7 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager Instance;
     public int playerIndex;
+    public bool isMusicOn;
 
     public string playerName;
     public int highScore;
@@ -18,12 +19,14 @@ public class DataManager : MonoBehaviour
         if(Instance != null)
         {
             Destroy(gameObject);
+            return;
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
         // File.Delete(Application.persistentDataPath + "/bestscorefile.json"); // This line can be activated, If you want to delete save file.
         LoadHighScore();
         RefreshScoreTitle();
+        isMusicOn = true;
     }
     [System.Serializable]
     class SaveData

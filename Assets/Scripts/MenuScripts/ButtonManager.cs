@@ -10,7 +10,23 @@ public class ButtonManager : MonoBehaviour
 {
     public TextMeshProUGUI inputName;
     public GameObject nickNameWarning;
-    public GameObject playerTwoWarning;
+    public GameObject playerTwoWarning; 
+
+    public TextMeshProUGUI musicButtonText;
+    private TextMeshProUGUI highScoreText;
+    private void Awake()
+    {
+        if(DataManager.Instance.isMusicOn)
+        {
+            musicButtonText.text = "Music: On";
+        }
+        else
+        {
+            musicButtonText.text = "Music: Off";
+        }
+        highScoreText = GameObject.Find("HighScoreText").GetComponent<TextMeshProUGUI>();
+        highScoreText.text = $"High Score | {DataManager.Instance.playerName} | {DataManager.Instance.highScore}";
+    }
     public void StartButton1()
     {
         StartWithPlayer(1);
@@ -36,6 +52,19 @@ public class ButtonManager : MonoBehaviour
 #else
 Application.Quit();
 #endif
+    }
+    public void MusicButton()
+    {
+        if(DataManager.Instance.isMusicOn)
+        {
+            DataManager.Instance.isMusicOn = false;
+            musicButtonText.text = "Music: Off";
+        }
+        else
+        {
+            DataManager.Instance.isMusicOn = true;
+            musicButtonText.text = "Music: On";
+        }
     }
 
     void StartWithPlayer(int playerIndex) // ABSTRACTION
