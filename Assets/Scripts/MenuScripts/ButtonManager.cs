@@ -29,19 +29,20 @@ public class ButtonManager : MonoBehaviour
     public void StartButton1()
     {
         FindObjectOfType<AudioManager>().Play("Click");
-        StartCoroutine(StartWith());
+        StartCoroutine(StartWith(1));
     }
-    IEnumerator StartWith()
+    IEnumerator StartWith(int playerInd)
     {
         yield return new WaitForSeconds(0.2f);
-        StartWithPlayer(1);
+        StartWithPlayer(playerInd);
     }
 
     public void StartButton2()
     {
-        if(DataManager.Instance.highScore >= 10)
+        if (DataManager.Instance.highScore >= 10)
         {
-            StartWithPlayer(2);
+            FindObjectOfType<AudioManager>().Play("Click");
+            StartCoroutine(StartWith(2));
         }
         else
         {
@@ -60,7 +61,8 @@ Application.Quit();
     }
     public void MusicButton()
     {
-        if(DataManager.Instance.isMusicOn)
+        FindObjectOfType<AudioManager>().Play("Click");
+        if (DataManager.Instance.isMusicOn)
         {
             DataManager.Instance.isMusicOn = false;
             RefreshMusicButtonText(DataManager.Instance.isMusicOn);
@@ -100,6 +102,10 @@ Application.Quit();
     }
     void RefreshHighScoreTitle()
     {
+        if(DataManager.Instance.playerName == "")
+        {
+            DataManager.Instance.playerName = "Player";
+        }
         highScoreText.text = $"High Score | {DataManager.Instance.playerName} | {DataManager.Instance.highScore}";
     }
 }
