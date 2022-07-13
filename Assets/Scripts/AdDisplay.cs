@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
 
@@ -11,7 +9,7 @@ public class AdDisplay : MonoBehaviour
     public string adUnitIdIOS = "Interstitial_iOS";
     public string myAdUnitId;
     public bool adStarted;
-    private bool testMode = true;
+    private bool testMode = false;
     // Start is called before the first frame update
     void Start()
     {
