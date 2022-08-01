@@ -140,7 +140,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!65 &60115960
 BoxCollider:
@@ -306,6 +306,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cloud2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d39257d0682533143be4621483b2d01d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39257d0682533143be4621483b2d01d, type: 3}
@@ -610,7 +615,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &414065368
 Transform:
@@ -722,6 +727,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cloud2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d39257d0682533143be4621483b2d01d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39257d0682533143be4621483b2d01d, type: 3}
@@ -881,7 +891,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &763313030
 Transform:
@@ -1219,6 +1229,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cloud2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d39257d0682533143be4621483b2d01d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39257d0682533143be4621483b2d01d, type: 3}
@@ -1811,6 +1826,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cloud1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff1d84bdc80709147b5450e5278f987d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1d84bdc80709147b5450e5278f987d, type: 3}
 --- !u!4 &1121589369 stripped
@@ -1905,6 +1925,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cloud2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d39257d0682533143be4621483b2d01d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39257d0682533143be4621483b2d01d, type: 3}
@@ -2053,6 +2078,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cloud1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff1d84bdc80709147b5450e5278f987d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1d84bdc80709147b5450e5278f987d, type: 3}
 --- !u!4 &1354377163 stripped
@@ -2197,6 +2227,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cloud1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff1d84bdc80709147b5450e5278f987d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1d84bdc80709147b5450e5278f987d, type: 3}
 --- !u!4 &1462634332 stripped
@@ -2291,6 +2326,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: cloud1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ff1d84bdc80709147b5450e5278f987d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff1d84bdc80709147b5450e5278f987d, type: 3}
@@ -2657,6 +2697,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: cloud2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d39257d0682533143be4621483b2d01d,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d39257d0682533143be4621483b2d01d, type: 3}
 --- !u!4 &2053862274 stripped
@@ -2713,10 +2758,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 720, y: 1280}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
