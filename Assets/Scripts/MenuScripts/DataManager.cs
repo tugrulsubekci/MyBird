@@ -10,11 +10,13 @@ public class DataManager : MonoBehaviour
 
     public string playerName;
     public int highScore;
+    public int numberOfGame;
 
     public TextMeshProUGUI highScoreTitle;
     void Awake()
     {
-        if(Instance != null)
+        Application.targetFrameRate = 60;
+        if (Instance != null)
         {
             Destroy(gameObject);
             return;

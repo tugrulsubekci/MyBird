@@ -449,6 +449,7 @@ MonoBehaviour:
   isMusicOn: 0
   playerName: 
   highScore: 0
+  numberOfGame: 0
   highScoreTitle: {fileID: 93612549}
 --- !u!1 &400209376
 GameObject:
@@ -2182,7 +2183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
