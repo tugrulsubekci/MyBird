@@ -4,12 +4,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody playerRb;
-    private float force = 5; // ENCAPSULATION
+    private float yVelocity = 3.2f; // ENCAPSULATION
 
     private GameManager gameManager;
     private Animator playerAnim;
 
     private int timeBetweenSpace = 0;
+    private float yMax = 16.0f;
     void Start()
     {
         playerRb = GetComponent<Rigidbody>();
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        CheckPosition();
     }
     private void FixedUpdate()
     {
@@ -61,9 +63,16 @@ public class PlayerController : MonoBehaviour
             Flap(false);
         }
     }
+    void CheckPosition()
+    {
+        if (transform.position.y > yMax)
+        {
+            transform.position = new Vector3(transform.position.x, yMax, transform.position.z);
+        }
+    }
     void Fly()
     {
-        playerRb.AddForce(Vector3.up * force, ForceMode.Impulse);
+        playerRb.velocity = new Vector3(0, yVelocity, 0);
         FindObjectOfType<AudioManager>().Play("Flap");
     }
     void Flap(bool isFlapping)

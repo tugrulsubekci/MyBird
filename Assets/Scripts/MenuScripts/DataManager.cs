@@ -10,6 +10,7 @@ public class DataManager : MonoBehaviour
 
     public string playerName;
     public int highScore;
+    public int numberOfGame; 
 
     public TextMeshProUGUI highScoreTitle;
     void Awake()

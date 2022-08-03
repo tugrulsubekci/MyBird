@@ -8,7 +8,20 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreTitle;
     [SerializeField] GameObject gameOverMenu;
     [SerializeField] GameObject TapToFlapText;
+    [SerializeField] GameObject adDisplayObject;
     public bool isTouch = false;
+    private void Awake()
+    {
+        DataManager.Instance.numberOfGame++;
+        if(DataManager.Instance.numberOfGame % 5 == 0)
+        {
+            adDisplayObject.SetActive(true);
+        }
+        else
+        {
+            adDisplayObject.SetActive(false);
+        }
+    }
     void Start()
     {
         gameOver = false;
